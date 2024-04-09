@@ -15,3 +15,4 @@ Data project using nba stats EDA. Will contain several parts:
 - `source venv/bin/activate`
 - `pip install -r requirements.txt`
 - `pip install -r requirements-dev.txt`
+- `pre-commit install -t commit-msg -t pre-commit`

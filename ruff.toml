@@ -1,0 +1,12 @@
+line-length = 120
+target-version = "py311"
+
+[lint]
+
+# select = ["E4", "E7", "E9", "F", "B"]  # default
+extend-select = [
+    'E', 'F', 'W', 'C90', 'A', 'ANN', 'S', 'B', 'DTZ', 'PT', 'Q', 'RSE', 'SIM', 'ARG', 'PTH', 'PD',
+    'TRY', 'FLY', 'NPY', 'PLC', 'PLE', 'PLW', 'I',
+    ]
+
+preview=true

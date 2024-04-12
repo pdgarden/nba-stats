@@ -39,6 +39,7 @@ class Game(BaseModel):
     home_team: str
     away_team: str
     date: datetime.date
+    season_year: int
 
     @computed_field
     def game_id(self) -> str:
@@ -83,6 +84,7 @@ def extract_month_schedule(year: int, month: str) -> list[Game]:
                 home_team=game["competitor"][1]["name"],
                 away_team=game["competitor"][0]["name"],
                 date=datetime.datetime.strptime(game["startDate"], "%a, %b %d, %Y").date(),
+                season_year=year,
             )
         )
 

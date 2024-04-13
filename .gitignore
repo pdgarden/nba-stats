@@ -154,3 +154,7 @@ cython_debug/
 
 # VSCode
 .vscode/
+
+
+# Repo
+scrapping/data/*.csv

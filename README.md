@@ -16,3 +16,12 @@ Data project using nba stats EDA. Will contain several parts:
 - `pip install -r requirements.txt`
 - `pip install -r requirements-dev.txt`
 - `pre-commit install -t commit-msg -t pre-commit`
+
+
+# Run
+
+## Scrapping scripts
+
+- `cd ./scrapping`
+- Generate `game_schedule.csv` : `python get_games_schedule.py`
+- Generate `game_boxscore.csv` : `python get_games_boxscore.py`

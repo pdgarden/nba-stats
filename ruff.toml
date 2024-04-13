@@ -1,10 +1,11 @@
 line-length = 120
 target-version = "py311"
+src = ["scrapping"]
 
 [lint]
 
 extend-select = [
-    'E', 'F', 'W', 'C90', 'A', 'ANN', 'S', 'B', 'DTZ', 'PT', 'Q', 'RSE', 'SIM', 'ARG', 'PTH', 'PD',
+    'E', 'F', 'W', 'C90', 'A', 'ANN', 'S', 'B', 'PT', 'Q', 'RSE', 'SIM', 'ARG', 'PTH', 'PD',
     'TRY', 'FLY', 'NPY', 'PLC', 'PLE', 'PLW', 'I',
     ]
 

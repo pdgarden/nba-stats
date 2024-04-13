@@ -1,0 +1,8 @@
+nba_dwh:
+
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: 'nba_dwh.duckdb'
+      threads: 24

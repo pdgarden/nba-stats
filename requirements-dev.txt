@@ -1,2 +1,5 @@
 ruff==0.3.5
 pre-commit==3.7.0
+
+# dbt/duckdb
+duckcli==0.2.1

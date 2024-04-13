@@ -1,4 +1,10 @@
-{{ config(materialized='external', location='output/game_boxscore.csv') }}
+{{
+    config(
+        materialized='external',
+        location='output/game_boxscore.csv',
+        tags=['gold'],
+    )
+}}
 
 
 with game_boxscore as (

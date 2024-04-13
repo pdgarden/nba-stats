@@ -4,7 +4,7 @@
 
 Data project using nba stats EDA. Will contain several parts:
 - Scrapping: To get raw data
-- Data engineering: To manipulate the data
+- Data engineering: To manipulate the data (using dbt & duckdb)
 - Data analysis: To exploit the data
 
 

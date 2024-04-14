@@ -16,3 +16,15 @@ models:
           - not_null
       - name: field_goals_pct
         description: "% of conversion on field goals"
+
+  - name: player
+    description: "Players stats"
+    columns:
+      - name: id
+        description: "player_name"
+        tests:
+          - not_null
+      - name: nb_games
+        description: "Number of games played on the season"
+        tests:
+          - not_null

@@ -71,6 +71,8 @@ final as (
 
     from game_summary_stack gss
 
+    where gss.is_regular_season
+
     group by gss.team_id
 
     order by gss.team_id

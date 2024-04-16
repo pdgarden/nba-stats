@@ -71,17 +71,17 @@ def extract_boxscore(game: Game) -> GameBoxscores:
         GameBoxscores: Contain the raw home and away team boxscore
     """
 
-    home_team_df_position, away_team_df_position = 8, 0
-
     time.sleep(SECONDS_BETWEEN_REQUESTS)
     dfs = pd.read_html(game.basketball_reference_url, match="Basic Box Score Stats")
+
+    home_team_df_position, away_team_df_position = int(len(dfs) / 2), 0
 
     return GameBoxscores(
         game_id=game.game_id,
         home_team=game.home_team,
         away_team=game.away_team,
-        home_team_boxscore=dfs[home_team_df_position],
-        away_team_boxscore=dfs[away_team_df_position],
+        home_team_boxscore=dfs[home_team_df_position].copy(),
+        away_team_boxscore=dfs[away_team_df_position].copy(),
     )
 
 
@@ -110,7 +110,7 @@ def clean_game_boxscores(game_boxscores: GameBoxscores) -> pd.DataFrame:
     return df_boxscore
 
 
-def get_every_boxscores(games: list[Game], save_checkpoints: bool = True) -> pd.DataFrame:
+def extract_every_boxscores(games: list[Game], save_checkpoints: bool = True) -> pd.DataFrame:
     """Loop over every games do retrieve every games boxscores.
 
     Args:
@@ -156,7 +156,7 @@ if __name__ == "__main__":
     logger.info("Start scrapping")
 
     games = extract_games_schedule(year=YEAR)
-    games_boxscore = get_every_boxscores(games=games)
+    games_boxscore = extract_every_boxscores(games=games)
     load_games_boxscore(df_games_boxscore=games_boxscore, year=YEAR)
 
     logger.info("End")

@@ -1,0 +1,8 @@
+
+target/
+dbt_packages/
+logs/
+
+nba_dwh.duckdb
+seeds/*.csv
+output/*.csv

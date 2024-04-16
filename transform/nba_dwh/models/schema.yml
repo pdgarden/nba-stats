@@ -1,0 +1,30 @@
+
+version: 2
+
+models:
+  - name: game_boxscore
+    description: "Boxscore of nba games"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: game_id
+        description: "Id of the modeled game"
+        tests:
+          - not_null
+      - name: field_goals_pct
+        description: "% of conversion on field goals"
+
+  - name: player
+    description: "Players stats"
+    columns:
+      - name: id
+        description: "player id (hash of name and team)"
+        tests:
+          - not_null
+      - name: nb_games
+        description: "Number of games played on the season"
+        tests:
+          - not_null

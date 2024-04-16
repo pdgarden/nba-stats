@@ -15,7 +15,7 @@ with game_boxscore as (
 final as (
 
     select
-        -- sha256(gb.player_name || gb.team_name) id,
+        sha256(gb.player_name || gb.team_name) id,
         gb.player_name player_name,
         gb.team_name team_name,
         count(*) nb_games,

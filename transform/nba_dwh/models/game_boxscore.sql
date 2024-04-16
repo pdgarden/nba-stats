@@ -9,7 +9,7 @@
 
 with game_boxscore as (
 
-    select * from {{ ref('2023_game_boxscore') }}
+    select * from {{ ref('2024_game_boxscore') }}
 
 ),
 

@@ -21,7 +21,7 @@ models:
     description: "Players stats"
     columns:
       - name: id
-        description: "player_name"
+        description: "player id (hash of name and team)"
         tests:
           - not_null
       - name: nb_games

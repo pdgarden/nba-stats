@@ -16,7 +16,7 @@ with game_boxscore as (
 
 game_schedule as (
 
-    select * from {{ ref('2023_game_schedule') }}
+    select * from {{ ref('2024_game_schedule') }}
 
 ),
 

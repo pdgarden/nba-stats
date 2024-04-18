@@ -36,7 +36,7 @@ class GameBoxscores(BaseModel):
 
 
 def extract_games_schedule(year: int) -> list[Game]:
-    """Extract games from local csv file.
+    """Extract games from local parquet file.
 
     Args:
         year (int): Season start year
@@ -45,8 +45,8 @@ def extract_games_schedule(year: int) -> list[Game]:
         list[Games]: list of game schedule for the given year
     """
 
-    input_filepath = DATA_FOLDER / f"{year}_game_schedule.csv"  # TODO mutualize
-    df_games_schedule = pd.read_csv(input_filepath)
+    input_filepath = DATA_FOLDER / f"game_schedule_{year}.parquet"  # TODO mutualize
+    df_games_schedule = pd.read_parquet(input_filepath)
 
     games = [
         Game(
@@ -130,24 +130,24 @@ def extract_every_boxscores(games: list[Game], save_checkpoints: bool = True) ->
         boxscores.append(clean_boxscore)
 
         if save_checkpoints:
-            pd.concat(boxscores).to_csv(DATA_FOLDER / "checkpoint_game_boxscore.csv", index=False)
+            pd.concat(boxscores).to_parquet(DATA_FOLDER / "checkpoint_game_boxscore.parquet", index=False)
 
     return pd.concat(boxscores)
 
 
 def load_games_boxscore(df_games_boxscore: pd.DataFrame, year: int) -> None:
-    """Load list of game boxscore as csv.
+    """Load list of game boxscore as parquet.
 
     Args:
         df_games_boxscore (list[Game]): list of game boxscore
         year (int): Season start year
     """
 
-    games_boxscore_filename = f"{year}_game_boxscore.csv"
+    games_boxscore_filename = f"game_boxscore_{year}.parquet"
     games_boxscore_path = DATA_FOLDER / games_boxscore_filename
 
     logger.info(f"Load data at {games_boxscore_path}")
-    df_games_boxscore.to_csv(games_boxscore_path, index=False)
+    df_games_boxscore.to_parquet(games_boxscore_path, index=False)
 
 
 # ------------------------------------------------------------------------------------------------ #

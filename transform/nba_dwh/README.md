@@ -1,9 +1,8 @@
 ### NBA datawarehouse
 
-Create a local datawarehouse for NBA data, using dbt and a bunch of raw data.
+Create a local datawarehouse for NBA data, using dbt and a bunch of raw data. The raw data is located under the `local_source` folder. When dbt runs, it creates the `nba_dwh.duckdb` db file.
 
-Try running the following commands:
-- `dbt seed`
+Try running the following commands from the `nba_dwh` directory:
 - `dbt run`
 - `dbt test`
 - `dbt docs generate`

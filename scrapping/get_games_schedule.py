@@ -110,7 +110,7 @@ def extract_every_month_schedule(year: int) -> list[Game]:
 
 
 def load_games_schedule(games_schedule: list[Game], year: int) -> None:
-    """Load list of game schedule as csv.
+    """Load list of game schedule as parquet file.
 
     Args:
         games_schedule (list[Game]): list of game schedule
@@ -119,11 +119,11 @@ def load_games_schedule(games_schedule: list[Game], year: int) -> None:
 
     df_games_schedule = pd.DataFrame([res.model_dump() for res in games_schedule])
 
-    games_schedule_filename = f"{year}_game_schedule.csv"
+    games_schedule_filename = f"game_schedule_{year}.parquet"
     games_schedule_path = DATA_FOLDER / games_schedule_filename
 
     logger.info(f"Load data at {games_schedule_path}")
-    df_games_schedule.to_csv(games_schedule_path, index=False)
+    df_games_schedule.to_parquet(games_schedule_path, index=False)
 
 
 # ------------------------------------------------------------------------------------------------ #

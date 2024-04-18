@@ -16,13 +16,13 @@ with game_boxscore as (
 
 game_schedule as (
 
-    select * from {{ ref('2024_game_schedule') }}
+    select * from {{ source('local_source', 'game_schedule_2024') }}
 
 ),
 
 season_calendar as (
 
-    select * from {{ ref('season_calendar') }}
+    select * from {{ source('local_source', 'season_calendar') }}
 
 ),
 

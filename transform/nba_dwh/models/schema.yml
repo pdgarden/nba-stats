@@ -28,3 +28,25 @@ models:
         description: "Number of games played on the season"
         tests:
           - not_null
+
+
+sources:
+  - name: local_source
+    config:
+      external_location: "./local_source/{name}.{extension}"
+    tables:
+      - name: game_boxscore_2024
+        description: "A source table containing boxscore of every games for 2024 season"
+        meta:
+          extension: parquet
+
+      - name: game_schedule_2024
+        description: "A source table containing the schedule of every games for 2024 season"
+        meta:
+          extension: parquet
+
+
+      - name: season_calendar
+        description: "Start and end date of seasons"
+        meta:
+          extension: csv

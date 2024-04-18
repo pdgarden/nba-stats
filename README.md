@@ -26,11 +26,12 @@ Data project using nba stats EDA. Will contain several parts:
 - Generate `game_schedule.csv` : `python get_games_schedule.py`
 - Generate `game_boxscore.csv` : `python get_games_boxscore.py`
 
+> The generated data is then transfered to the sources of the dbt project: `cp ./scrapping/data/*.parquet ./transform/nba_dwh/local_source/`
+`
 
-## Modeling - dbt
+## Modeling - DBT
 
 - `cd ./transform/nba_dwh`
-- Generate seeds: `dbt seed`
 - Run transformations: `dbt run`
 - Generate doc: `dbt docs generate`
 - Launch doc `dbt docs serve`
@@ -38,5 +39,3 @@ Data project using nba stats EDA. Will contain several parts:
 Then to interact with the output data:
 - Open the local db: `duckcli nba_dwh.duckdb`
 - Request data: `select * from team_season order by nb_game_win`
-
-> *TODO: add instruction to upload seeds or upload them directly: `2023_game_boxscore.csv` / `2023_game_schedule.csv` / `season_calendar.csv`*

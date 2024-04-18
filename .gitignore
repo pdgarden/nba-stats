@@ -158,3 +158,4 @@ cython_debug/
 
 # Repo
 scrapping/data/*.csv
+scrapping/data/*.parquet

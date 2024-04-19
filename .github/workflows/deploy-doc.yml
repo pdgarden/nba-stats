@@ -32,5 +32,5 @@ jobs:
       - name: Lint with Ruff
         run: |
           pip install ruff
-          ruff check --output-format=github .
+          ruff check -v .
         continue-on-error: false

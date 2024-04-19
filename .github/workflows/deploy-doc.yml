@@ -34,3 +34,33 @@ jobs:
           pip install ruff
           ruff check -v .
         continue-on-error: false
+
+      - name: "Verify dbt"
+        run: dbt --version
+
+      - name: "Run dbt"
+        working-directory: ./transform/nba_dwh
+        run: |
+          dbt run
+
+      - name: "Generate dbt docs"
+        working-directory: ./transform/nba_dwh
+        run: |
+          dbt docs generate
+          cd target
+          mkdir ${{ github.workspace }}/docs
+          cp *.json *.html graph.gpickle ${{ github.workspace }}/docs
+          ls -ltra ${{ github.workspace }}/docs
+
+      - name: "Upload pages to artifact"
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ${{ github.workspace }}/docs
+
+      - name: "Zip artifact"
+        run: zip -jrq docs.zip ${{ github.workspace }}/docs
+      - name: "Upload artifact for deployment job"
+        uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: docs.zip

@@ -3,7 +3,7 @@ name: "Deploy doc"
 on:
   push:
     branches:
-      - main  # Adjust branch name as needed
+      - host-doc-github  # TODO: switch with main once development finished
 
 jobs:
   build:

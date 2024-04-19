@@ -7,6 +7,9 @@ on:
       - 'host-doc-github'  # TODO: switch with main once development finished
       - '*'
 
+  pull_request:
+    types: [opened, reopened, edited, assigned, unassigned]
+
 jobs:
   build:
     runs-on: ubuntu-latest

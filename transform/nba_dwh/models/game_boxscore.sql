@@ -23,13 +23,13 @@ final as (
         (string_split(gb.MP, ':')[1]::float + (string_split(gb.MP, ':')[2]::float / 60))::float minute_played,
         gb.FG::int field_goals_made,
         gb.FGA field_goals_attempts,
-        #5::float field_goals_pct,
-        #6::int three_pts_made,
-        #7::int three_pts_attempts,
-        #8::float three_pts_pct,
+        gb."FG%"::float field_goals_pct,
+        gb."3P"::int three_pts_made,
+        gb."3PA"::int three_pts_attempts,
+        gb."3P%"::float three_pts_pct,
         gb.FT::int free_throw_made,
         gb.FTA::int free_throw_attempts,
-        #11::float free_throw_pct,
+        gb."FT%"::float free_throw_pct,
         gb.ORB::int offensive_rebounds,
         gb.DRB::int defensive_rebounds,
         gb.TRB::int total_rebounds,
@@ -39,7 +39,7 @@ final as (
         gb.TOV::int turnovers,
         gb.PF::int fouls,
         gb.PTS::int points,
-        #21::int plus_minus
+        gb."+/-"::int plus_minus
     from game_boxscore gb
 
     where gb.Starters not in ('Starters', 'Reserves') -- remove headers

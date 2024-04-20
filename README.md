@@ -7,7 +7,7 @@ Data project using nba stats EDA. Will contain several parts:
 - Data engineering: To manipulate the data (using dbt & duckdb)
 - Data analysis: To exploit the data
 
-
+Datawarehouse documentation: [link](https://pdgarden.github.io/nba-stats/)
 
 # Getting started
 

@@ -1,12 +1,9 @@
 name: "Deploy doc"
 
-run-name: Deploy Documentation - Host GitHub Pages ${{ github.sha::6 }}
-
 on:
   push:
     branches:
       - 'main'
-      - 'host-doc-github'  # TODO: switch with main once development finished
 
 
 jobs:

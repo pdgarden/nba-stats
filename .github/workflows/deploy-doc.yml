@@ -1,5 +1,6 @@
 name: "Deploy doc"
 
+run-name: Deploy Documentation - Host GitHub Pages ${{ github.sha }}
 
 on:
   push:

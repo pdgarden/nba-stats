@@ -10,7 +10,7 @@
 with
     game_boxscore as (select * from {{ ref("game_boxscore") }}),
 
-    game_schedule as (select * from {{ source("local_source", "game_schedule_2024") }}),
+    game_schedule as (select * from {{ ref("base_game_schedule") }}),
 
     season_calendar as (select * from {{ source("local_source", "season_calendar") }}),
 

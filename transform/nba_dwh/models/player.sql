@@ -11,6 +11,8 @@ with
 
     game_schedule as (select * from {{ ref("base_game_schedule") }}),
 
+    season_calendar as (select * from {{ source("local_source", "season_calendar") }}),
+
     final as (
 
         select
@@ -60,6 +62,9 @@ with
         from game_boxscore gb
 
         inner join game_schedule gs on gb.game_id = gs.game_id
+        inner join season_calendar sc on sc.year = gs.season_year
+
+        where gs.date between sc.start_date and sc.end_date
 
         group by gb.player_name, gs.season_year, gb.team_name
 

@@ -9,11 +9,14 @@
 with
     game_boxscore as (select * from {{ ref("game_boxscore") }}),
 
+    game_schedule as (select * from {{ ref("base_game_schedule") }}),
+
     final as (
 
         select
-            sha256(gb.player_name || gb.team_name) id,
+            sha256(gb.player_name || gs.season_year || gb.team_name) id,
             gb.player_name player_name,
+            gs.season_year season_year,
             gb.team_name team_name,
             count(*) nb_games,
             sum(gb.minute_played) total_minute_played,
@@ -56,7 +59,9 @@ with
 
         from game_boxscore gb
 
-        group by player_name, team_name
+        inner join game_schedule gs on gb.game_id = gs.game_id
+
+        group by gb.player_name, gs.season_year, gb.team_name
 
     )
 

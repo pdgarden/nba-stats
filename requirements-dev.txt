@@ -1,4 +1,4 @@
-ruff==0.3.5
+ruff==0.4.1
 pre-commit==3.7.0
 shandy-sqlfmt[jinjafmt]==0.21.2
 

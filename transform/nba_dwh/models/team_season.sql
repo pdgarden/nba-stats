@@ -12,22 +12,24 @@ with
 
     team as (select distinct home_team id from game_summary),
 
+    game_schedule as (select * from {{ ref("base_game_schedule") }}),
+
     game_summary_home as (
 
-        select *, true is_home_team, home_team team_id
+        select *, gs.winning_team = gs.home_team won_game, team.id team_id
 
-        from game_summary
+        from game_summary gs
 
-        inner join team on team.id = game_summary.home_team
+        inner join team on team.id = gs.home_team
 
     ),
 
     game_summary_away as (
 
-        select *, false is_home_team, away_team team_id
+        select *, gs.winning_team = gs.away_team won_game, team.id team_id
 
-        from game_summary
-        inner join team on team.id = game_summary.away_team
+        from game_summary gs
+        inner join team on team.id = gs.away_team
 
     ),
 
@@ -44,21 +46,20 @@ with
 
         select
             gss.team_id,
+            gs.season_year,
             count(*) nb_game,
-            sum(
-                ((gss.is_home_team and gss.home_team_won) or (not gss.is_home_team and not gss.home_team_won))::int
-            ) nb_game_win,
-            avg(
-                ((gss.is_home_team and gss.home_team_won) or (not gss.is_home_team and not gss.home_team_won))::int
-            ) pct_game_win
+            sum(won_game::int) nb_game_win,
+            avg(won_game::int) pct_game_win
 
         from game_summary_stack gss
 
+        inner join game_schedule gs on gs.game_id = gss.game_id
+
         where gss.is_regular_season
 
-        group by gss.team_id
+        group by gss.team_id, gs.season_year
 
-        order by gss.team_id
+        order by gss.team_id, gs.season_year
 
     )
 

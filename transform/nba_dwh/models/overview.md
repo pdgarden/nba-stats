@@ -15,8 +15,7 @@ The database is constructed locally using `local_source` containing parquet file
 ## Graph Exploration
 
 - To visualize the lineage graph of every model, click the blue icon located in the bottom-right corner of the page.
-- On model pages, you'll find the immediate parents and children of the model you're exploring. By clicking the Expand button at the top-right of this lineage pane, you'll reveal all models used to build or built from the current model.
-- Once expanded, you can utilize the `--select` and `--exclude` model selection syntax to filter the models in the graph. For more information on model selection, refer to the dbt docs.
+- To filter out the concatenated sources (`game_boxscore_*` / `game_schedule_*`) which can overload the graph, you can add `tag:sources_concat` in the `--exclude` section.
 - Additionally, you can right-click on models for interactive filtering and exploration.
 
 {% enddocs %}

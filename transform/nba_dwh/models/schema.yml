@@ -37,210 +37,262 @@ sources:
     tables:
       - name: game_boxscore_1999
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2000
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2001
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2002
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2003
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2004
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2005
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2006
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2007
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2008
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2009
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2010
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2011
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2012
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2013
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2014
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2015
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2016
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2017
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2018
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2019
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2020
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2021
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2022
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2023
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_boxscore_2024
         description : 'boxscore table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_1999
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2000
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2001
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2002
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2003
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2004
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2005
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2006
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2007
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2008
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2009
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2010
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2011
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2012
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2013
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2014
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2015
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2016
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2017
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2018
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2019
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2020
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2021
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2022
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2023
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
       - name: game_schedule_2024
         description : 'schedule table for a given season'
+        tags: ['sources_concat']
         meta:
             extension: parquet
 

@@ -19,6 +19,10 @@ models:
               field: game_id
       - name: field_goals_pct
         description: "Conversion rate on field goals"
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1
 
   - name: player
     description: "Players stats currently only regular season"
@@ -32,6 +36,8 @@ models:
         description: "Number of games played on the season"
         tests:
           - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
 
   - name: game_summary
     description: "Basic summary of NBA games"

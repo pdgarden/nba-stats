@@ -45,6 +45,7 @@ with
     final as (
 
         select
+            sha256(gss.team_id || gs.season_year) id,
             gss.team_id,
             gs.season_year,
             count(*) nb_game,

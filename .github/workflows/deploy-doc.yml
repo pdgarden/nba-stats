@@ -24,8 +24,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: "Verify dbt"
+      - name: Verify dbt
         run: dbt --version
+
+      - name: Install dbt deps
+        run: dbt deps
 
       - name: Run dbt
         working-directory: ./transform/nba_dwh

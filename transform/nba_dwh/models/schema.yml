@@ -14,20 +14,54 @@ models:
         description: "Id of the modeled game"
         tests:
           - not_null
+          - relationships:
+              to: ref('base_game_schedule')
+              field: game_id
       - name: field_goals_pct
-        description: "% of conversion on field goals"
+        description: "Conversion rate on field goals"
 
   - name: player
-    description: "Players stats"
+    description: "Players stats currently only regular season"
     columns:
       - name: id
-        description: "player id (hash of name and team)"
+        description: "Player stats id (hash of name, season year and team)"
         tests:
           - not_null
+          - unique
       - name: nb_games
         description: "Number of games played on the season"
         tests:
           - not_null
+
+  - name: game_summary
+    description: "Basic summary of NBA games"
+    columns:
+      - name: game_id
+        description: "Primary key of the table"
+        tests:
+          - not_null
+          - unique
+      - name: home_team
+        description: "ID (name) of the team playing at home"
+        tests:
+          - relationships:
+              to: ref('team_season')
+              field: team_id
+      - name: away_team
+        description: "ID (name) of the team playing away"
+        tests:
+          - relationships:
+              to: ref('team_season')
+              field: team_id
+
+  - name: team_season
+    description: "Summary of every season per NBA team"
+    columns:
+      - name: id
+        description: "Primary key of the table"
+        tests:
+          - not_null
+          - unique
 
 
 sources:

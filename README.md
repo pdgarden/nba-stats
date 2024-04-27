@@ -1,6 +1,4 @@
-<img src="https://img.shields.io/badge/python-3.11-blue" alt="Supported Python version">
-<img src="https://img.shields.io/static/v1?logo=dbt&label=dbt&message=1.7&color=blue">
-<img src="https://img.shields.io/static/v1?logo=duckdb&label=duckdb&message=0.10&color=blue">
+<img src="https://img.shields.io/badge/python-3.11-blue" alt="Supported Python version"> <img src="https://img.shields.io/static/v1?logo=dbt&label=dbt&message=1.7&color=blue"> <img src="https://img.shields.io/static/v1?logo=duckdb&label=duckdb&message=0.10&color=blue">
 
 # NBA stats
 

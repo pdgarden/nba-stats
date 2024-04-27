@@ -28,6 +28,7 @@ jobs:
         run: dbt --version
 
       - name: Install dbt deps
+        working-directory: ./transform/nba_dwh
         run: dbt deps
 
       - name: Run dbt

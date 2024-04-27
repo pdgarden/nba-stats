@@ -10,5 +10,3 @@ Try running the following commands from the `nba_dwh` directory:
 - (To see the generated doc) `dbt docs serve`
 - Then run open the local db: `duckcli nba_dwh.duckdb`
 - Request data: `select * from team_season order by nb_game_win limit 10;`
-
-> *TODO: add context, structure and approach*

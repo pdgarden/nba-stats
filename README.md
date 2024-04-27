@@ -6,9 +6,9 @@
 - [2. 📟 Prerequisites](#2--prerequisites)
 - [3. 🔌 Quickstart](#3--quickstart)
 - [4. 🚀 Run](#4--run)
-  - [4.1. Scrapping scripts](#41-scrapping-scripts)
-  - [4.2. Create database](#42-create-database)
-  - [4.3. Interact with database](#43-interact-with-database)
+  - [4.1. ⚙️ Scrapping scripts](#41-️-scrapping-scripts)
+  - [4.2. ⚙️ Create database](#42-️-create-database)
+  - [4.3. ⚙️ Interact with database](#43-️-interact-with-database)
 - [5. 🔗 Internal Architecture](#5--internal-architecture)
 - [6. 🏆 Code Quality and Formatting](#6--code-quality-and-formatting)
 - [7. 📚 Complementary documentation](#7--complementary-documentation)
@@ -16,7 +16,7 @@
 
 # 1. 💬 Project description
 
-This project aims to build a local database for retrieving NBA data through SQL queries. It is comprised of two main several parts:
+This project aims to build a local database for retrieving NBA data through SQL queries. It consists of two main parts:
 - **Scrapping**: To get raw data
 - **Data engineering:** To manipulate the data using dbt & duckdb
 
@@ -25,7 +25,7 @@ Datawarehouse documentation: [link](https://pdgarden.github.io/nba-stats/)
 
 # 2. 📟 Prerequisites
 
-The project is developped and tested under python 3.11. No specific environment variable is necessary.
+The project is developed and tested under Python 3.11. No specific environment variable is necessary.
 
 
 # 3. 🔌 Quickstart
@@ -39,10 +39,9 @@ To setup and use the project locally, execute the following steps:
 5. `pre-commit install -t commit-msg -t pre-commit` (Setup pre-commit)
 
 
-
 # 4. 🚀 Run
 
-## 4.1. Scrapping scripts
+## 4.1. ⚙️ Scrapping scripts
 <details>
   <summary>This is not necessary to execute it again as the data is already extracted</summary>
 
@@ -51,11 +50,10 @@ To setup and use the project locally, execute the following steps:
 - Generate `game_boxscore.csv` : `python get_games_boxscore.py`
 
 > The generated data is then transfered to the sources of the dbt project: `cp ./scrapping/data/*.parquet ./transform/nba_dwh/local_source/`
-`
 
 </details>
 
-## 4.2. Create database
+## 4.2. ⚙️ Create database
 
 The following section describe the steps to create the local duckdb database, leveraging dbt:
 
@@ -65,7 +63,7 @@ The following section describe the steps to create the local duckdb database, le
 4. `dbt docs serve` (Launch doc)
 
 
-## 4.3. Interact with database
+## 4.3. ⚙️ Interact with database
 
 Once the database is created:
 - Open the local db: `duckcli ./nba_dwh.duckdb`

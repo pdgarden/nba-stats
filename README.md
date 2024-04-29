@@ -6,7 +6,7 @@
 - [2. 📟 Prerequisites](#2--prerequisites)
 - [3. 🔌 Quickstart](#3--quickstart)
 - [4. 🚀 Run](#4--run)
-  - [4.1. ⚙️ Scrapping scripts](#41-️-scrapping-scripts)
+  - [4.1. ⚙️ Scraping scripts](#41-️-scraping-scripts)
   - [4.2. ⚙️ Create database](#42-️-create-database)
   - [4.3. ⚙️ Interact with database](#43-️-interact-with-database)
 - [5. 🔗 Internal Architecture](#5--internal-architecture)
@@ -17,7 +17,7 @@
 # 1. 💬 Project description
 
 This project aims to build a local database for retrieving NBA data through SQL queries. It consists of two main parts:
-- **Scrapping**: To get raw data
+- **Scraping**: To get raw data
 - **Data engineering:** To manipulate the data using dbt & duckdb
 
 Datawarehouse documentation: [link](https://pdgarden.github.io/nba-stats/)
@@ -41,15 +41,15 @@ To setup and use the project locally, execute the following steps:
 
 # 4. 🚀 Run
 
-## 4.1. ⚙️ Scrapping scripts
+## 4.1. ⚙️ Scraping scripts
 <details>
   <summary>This is not necessary to execute it again as the data is already extracted</summary>
 
-- `cd ./scrapping`
+- `cd ./scraping`
 - Generate `game_schedule.csv` : `python get_games_schedule.py`
 - Generate `game_boxscore.csv` : `python get_games_boxscore.py`
 
-> The generated data is then transfered to the sources of the dbt project: `cp ./scrapping/data/*.parquet ./transform/nba_dwh/local_source/`
+> The generated data is then transfered to the sources of the dbt project: `cp ./scraping/data/*.parquet ./transform/nba_dwh/local_source/`
 
 </details>
 
@@ -73,7 +73,7 @@ Once the database is created:
 
 # 5. 🔗 Internal Architecture
 
-- Folder `/scrapping`: Contains scripts to generate the raw data
+- Folder `/scraping`: Contains scripts to generate the raw data
 - Folder `/transform`: Contains dbt project to generate the database
 
 

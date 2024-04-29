@@ -153,7 +153,7 @@ def load_games_boxscore(df_games_boxscore: pd.DataFrame, year: int) -> None:
 # ------------------------------------------------------------------------------------------------ #
 # Main
 if __name__ == "__main__":
-    logger.info("Start scrapping")
+    logger.info("Start scraping")
 
     games = extract_games_schedule(year=YEAR)
     games_boxscore = extract_every_boxscores(games=games)

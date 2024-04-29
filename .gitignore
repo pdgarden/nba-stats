@@ -157,5 +157,5 @@ cython_debug/
 
 
 # Repo
-scrapping/data/*.csv
-scrapping/data/*.parquet
+scraping/data/*.csv
+scraping/data/*.parquet

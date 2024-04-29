@@ -130,7 +130,7 @@ def load_games_schedule(games_schedule: list[Game], year: int) -> None:
 # Main
 
 if __name__ == "__main__":
-    logger.info("Start scrapping")
+    logger.info("Start scraping")
     games_schedule = extract_every_month_schedule(year=YEAR)
     load_games_schedule(games_schedule=games_schedule, year=YEAR)
     logger.info("End")

@@ -32,7 +32,7 @@ The project is developed and tested under Python 3.11. No specific environment v
 
 To setup and use the project locally, execute the following steps:
 
-1. `python3.11 -m venv venv` (Create virtual environment)
+1. `python -m venv venv` (Create virtual environment - Using python 3.11 is recommended)
 2. `source venv/bin/activate` (Activate virtual environment)
 3. `pip install -r requirements.txt` (Install main requirements)
 4. `pip install -r requirements-dev.txt` (Install dev related requirements)

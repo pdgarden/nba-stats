@@ -58,9 +58,10 @@ To setup and use the project locally, execute the following steps:
 The following section describe the steps to create the local duckdb database, leveraging dbt:
 
 1. `cd ./transform/nba_dwh`
-2. `dbt run` (Run transformations)
-3. `dbt docs generate` (Generate doc)
-4. `dbt docs serve` (Launch doc)
+2. `dbt deps` (Install dbt dependencies)
+3. `dbt run` (Run transformations)
+4. `dbt docs generate` (Generate doc)
+5. `dbt docs serve` (Launch doc)
 
 
 ## 4.3. ⚙️ Interact with database

@@ -90,3 +90,4 @@ Once the database is created:
 - [DBT](https://docs.getdbt.com/docs/collaborate/documentation)
 - [DuckDB](https://duckdb.org/docs/)
 - [DBT-DuckDB adaptater](https://github.com/duckdb/dbt-duckdb)
+- See analysis based on this data, and leveraging bayesian statistics [here](https://pdgarden.github.io/nba-stats-eda/eda_nba_players_accuracy_evolution.html)

@@ -24,7 +24,7 @@ models:
               min_value: 0
               max_value: 1
 
-  - name: player
+  - name: player_season
     description: "Players stats currently only regular season"
     columns:
       - name: id

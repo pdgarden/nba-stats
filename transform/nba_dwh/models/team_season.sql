@@ -10,26 +10,26 @@
 with
     game_summary as (select * from {{ ref("game_summary") }}),
 
-    team as (select distinct home_team id from game_summary),
+    team as (select * from {{ ref("team") }}),
 
     game_schedule as (select * from {{ ref("base_game_schedule") }}),
 
     game_summary_home as (
 
-        select *, gs.winning_team = gs.home_team won_game, team.id team_id
+        select *, gs.winning_team_id = gs.home_team_id won_game, team.id team_id
 
         from game_summary gs
 
-        inner join team on team.id = gs.home_team
+        inner join team on team.id = gs.home_team_id
 
     ),
 
     game_summary_away as (
 
-        select *, gs.winning_team = gs.away_team won_game, team.id team_id
+        select *, gs.winning_team_id = gs.away_team_id won_game, team.id team_id
 
         from game_summary gs
-        inner join team on team.id = gs.away_team
+        inner join team on team.id = gs.away_team_id
 
     ),
 
@@ -54,7 +54,7 @@ with
 
         from game_summary_stack gss
 
-        inner join game_schedule gs on gs.game_id = gss.game_id
+        inner join game_schedule gs on sha256(gs.game_id) = gss.id
 
         where gss.is_regular_season
 

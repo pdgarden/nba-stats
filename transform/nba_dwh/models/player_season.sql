@@ -20,9 +20,6 @@ with
             sha256(gb.player_name) player_id,
             sha256(gb.team_name) team_id,
             sha256(sc.year::varchar) season_id,
-            gb.player_name player_name,
-            gb.team_name team_name,
-            gs.season_year season_year,
             count(*) nb_games,
             sum(gb.minute_played) total_minute_played,
             sum(gb.field_goals_made) total_field_goals_made,
@@ -73,11 +70,7 @@ with
             sha256(gb.player_name || gs.season_year || gb.team_name),
             sha256(gb.player_name),
             sha256(gb.team_name),
-            sha256(sc.year::varchar),
-            gb.player_name,
-            gb.team_name,
-            gs.season_year
-
+            sha256(sc.year::varchar)
     )
 
 select *

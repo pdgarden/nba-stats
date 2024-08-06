@@ -19,7 +19,7 @@ with
             gb.starters::varchar player_name,
             (string_split(gb.mp, ':')[1]::float + (string_split(gb.mp, ':')[2]::float / 60))::float minute_played,
             gb.fg::int field_goals_made,
-            gb.fga field_goals_attempts,
+            gb.fga::int field_goals_attempts,
             gb."FG%"::float field_goals_pct,
             gb."3P"::int three_pts_made,
             gb."3PA"::int three_pts_attempts,

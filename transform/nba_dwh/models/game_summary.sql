@@ -27,7 +27,7 @@ with
 
         from game_schedule gs
 
-        inner join game_boxscore gb on gb.game_id = gs.game_id
+        inner join game_boxscore gb on gb.game_id = sha256(gs.game_id)
         inner join season_calendar sc on sha256(sc.year::varchar) = sha256(gs.season_year::varchar)
 
         group by 1, 2, 3, 4, 5, 6

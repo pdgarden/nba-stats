@@ -23,8 +23,8 @@ with
             sha256(gs.home_team) home_team_id,
             sha256(gs.away_team) away_team_id,
             gs.date between sc.start_date and sc.end_date is_regular_season,
-            sum(case when gb.team_name == gs.home_team then gb.points else 0 end) home_team_points,
-            sum(case when gb.team_name == gs.away_team then gb.points else 0 end) away_team_points
+            sum(case when gb.team_id == sha256(gs.home_team) then gb.points else 0 end) home_team_points,
+            sum(case when gb.team_id == sha256(gs.away_team) then gb.points else 0 end) away_team_points
 
         from game_schedule gs
 

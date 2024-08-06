@@ -16,9 +16,9 @@ with
     final as (
 
         select
-            sha256(gb.player_name || gs.season_year || gb.team_name) id,
-            sha256(gb.player_name) player_id,
-            sha256(gb.team_name) team_id,
+            sha256(gb.player_id || gb.team_id || sha256(sc.year::varchar)) id,
+            gb.player_id player_id,
+            gb.team_id team_id,
             sha256(sc.year::varchar) season_id,
             count(*) nb_games,
             sum(gb.minute_played) total_minute_played,
@@ -66,11 +66,8 @@ with
 
         where gs.date between sc.start_date and sc.end_date
 
-        group by
-            sha256(gb.player_name || gs.season_year || gb.team_name),
-            sha256(gb.player_name),
-            sha256(gb.team_name),
-            sha256(sc.year::varchar)
+        group by id, player_id, team_id, season_id
+
     )
 
 select *

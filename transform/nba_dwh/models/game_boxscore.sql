@@ -14,8 +14,9 @@ with
 
         select
             sha256(gb.game_id::varchar || gb.team::varchar || gb.starters) id,
-            gb.game_id::varchar game_id,
-            gb.team::varchar team_name,
+            sha256(gb.game_id::varchar) game_id,
+            sha256(gb.team::varchar) team_id,
+            sha256(gb.starters::varchar) player_id,
             gb.starters::varchar player_name,
             (string_split(gb.mp, ':')[1]::float + (string_split(gb.mp, ':')[2]::float / 60))::float minute_played,
             gb.fg::int field_goals_made,

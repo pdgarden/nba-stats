@@ -7,10 +7,13 @@ This project focuses on modeling NBA data extracted from raw boxscores and seaso
 The database is constructed locally using `local_source` containing parquet files, with data spanning from the 1998/1999 to the 2023/2024 season.
 
 ### Main Tables
-- [player](#!/model/model.nba_dwh.player): Contains statistics per player and season.
+- [player](#!/model/model.nba_dwh.player): Contains name of players.
+- [player_season](#!/model/model.nba_dwh.player_season): Contains statistics per player and season.
+- [team](#!/model/model.nba_dwh.team): Contains name of teams.
+- [team_season](#!/model/model.nba_dwh.team_season): Contains statistics per team and season.
 - [game_boxscore](#!/model/model.nba_dwh.game_boxscore): Contains the boxscore of each game.
 - [game_summary](#!/model/model.nba_dwh.game_summary): Contains teams main statistics per game.
-- [team_season](#!/model/model.nba_dwh.team_season): Contains statistics per team and season.
+
 
 ## Graph Exploration
 

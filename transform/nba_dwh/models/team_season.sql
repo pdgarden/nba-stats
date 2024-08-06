@@ -1,7 +1,6 @@
 {{
     config(
-        materialized="external",
-        location="output/team_season.csv",
+        materialized="table",
         tags=["gold"],
     )
 }}

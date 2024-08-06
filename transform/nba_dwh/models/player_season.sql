@@ -60,12 +60,12 @@ with
 
         from game_boxscore gb
 
-        inner join game_schedule gs on gb.game_id = gs.game_id
+        inner join game_schedule gs on gb.game_id = sha256(gs.game_id)
         inner join season_calendar sc on sc.year = gs.season_year
 
         where gs.date between sc.start_date and sc.end_date
 
-        group by id, player_id, team_id, season_id
+        group by gb.player_id, gb.team_id, sc.year
 
     )
 

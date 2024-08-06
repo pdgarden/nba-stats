@@ -46,7 +46,7 @@ with
         select
             sha256(gss.team_id || gs.season_year) id,
             gss.team_id,
-            gs.season_year,
+            sha256(gs.season_year::varchar) season_id,
             count(*) nb_game,
             sum(won_game::int) nb_game_win,
             avg(won_game::int) pct_game_win

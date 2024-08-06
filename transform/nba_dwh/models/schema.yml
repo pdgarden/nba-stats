@@ -11,12 +11,23 @@ models:
           - unique
           - not_null
       - name: game_id
-        description: "Id of the modeled game"
         tests:
           - not_null
           - relationships:
-              to: ref('base_game_schedule')
-              field: game_id
+              to: ref('game')
+              field: id
+      - name: team_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('team')
+              field: id
+      - name: player_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('player')
+              field: id
       - name: field_goals_pct
         description: "Conversion rate on field goals"
         tests:
@@ -32,6 +43,24 @@ models:
         tests:
           - not_null
           - unique
+      - name: player_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('player')
+              field: id
+      - name: team_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('team')
+              field: id
+      - name: season_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('season')
+              field: id
       - name: nb_games
         description: "Number of games played on the season"
         tests:
@@ -42,18 +71,18 @@ models:
   - name: game_summary
     description: "Basic summary of NBA games"
     columns:
-      - name: game_id
+      - name: id
         description: "Primary key of the table"
         tests:
           - not_null
           - unique
-      - name: home_team
+      - name: home_team_id
         description: "ID (name) of the team playing at home"
         tests:
           - relationships:
               to: ref('team_season')
               field: team_id
-      - name: away_team
+      - name: away_team_id
         description: "ID (name) of the team playing away"
         tests:
           - relationships:
@@ -66,6 +95,43 @@ models:
       - name: id
         description: "Primary key of the table"
         tests:
+          - not_null
+          - unique
+      - name: team_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('team')
+              field: id
+      - name: season_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('season')
+              field: id
+
+  - name: team
+    description: "Every NBA teams"
+    columns:
+      - name: id
+        description: "Primary key of the table"
+        tests:
+          - not_null
+          - unique
+
+  - name: season
+    description: "Dates of every seasons"
+    columns:
+      - name: id
+        test:
+          - not_null
+          - unique
+
+  - name: player
+    description: "Every players who played in an NBA game"
+    columns:
+      - name: id
+        test:
           - not_null
           - unique
 

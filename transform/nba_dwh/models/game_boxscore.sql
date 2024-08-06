@@ -1,7 +1,6 @@
 {{
     config(
-        materialized="external",
-        location="output/game_boxscore.csv",
+        materialized="table",
         tags=["gold"],
     )
 }}

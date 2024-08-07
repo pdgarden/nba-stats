@@ -49,7 +49,7 @@ To setup and use the project locally, execute the following steps:
 - Generate `game_schedule.csv` : `python get_games_schedule.py`
 - Generate `game_boxscore.csv` : `python get_games_boxscore.py`
 
-> The generated data is then transfered to the sources of the dbt project: `cp ./scraping/data/*.parquet ./transform/nba_dwh/local_source/`
+> The generated data is then transferred to the sources of the dbt project: `cp ./scraping/data/*.parquet ./transform/nba_dwh/local_source/`
 
 </details>
 
@@ -88,8 +88,8 @@ order by s.years
 
 # 6. 🏆 Code Quality and Formatting
 
-- The python files are linted and formated using ruff, see configuration in `pyproject.toml`
-- The dbt sql models files are formated using sqlfmt
+- The python files are linted and formatted using ruff, see configuration in `pyproject.toml`
+- The dbt sql models files are formatted using sqlfmt
 - Pre-commit configuration is available to ensure trigger quality checks (e.g. linter)
 - Commit messages follow the conventional commit convention
 
@@ -98,5 +98,5 @@ order by s.years
 
 - [DBT](https://docs.getdbt.com/docs/collaborate/documentation)
 - [DuckDB](https://duckdb.org/docs/)
-- [DBT-DuckDB adaptater](https://github.com/duckdb/dbt-duckdb)
+- [DBT-DuckDB adapter](https://github.com/duckdb/dbt-duckdb)
 - See analysis based on this data, and leveraging bayesian statistics [here](https://pdgarden.github.io/nba-stats-eda/eda_nba_players_accuracy_evolution.html)

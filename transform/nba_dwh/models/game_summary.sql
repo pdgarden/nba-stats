@@ -1,9 +1,4 @@
-{{
-    config(
-        materialized="table",
-        tags=["gold"],
-    )
-}}
+{{ config(materialized="table", tags=["gold"], docs={"node_color": "gold"}) }}
 
 
 with

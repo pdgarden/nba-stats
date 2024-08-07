@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/badge/python-3.11-blue" alt="Supported Python version"> <img src="https://img.shields.io/static/v1?logo=dbt&label=dbt&message=1.7&color=blue"> <img src="https://img.shields.io/static/v1?logo=duckdb&label=duckdb&message=0.10&color=blue">
+<img src="https://img.shields.io/badge/python-3.11-blue" alt="Supported Python version"> <img src="https://img.shields.io/static/v1?logo=dbt&label=dbt&message=1.8&color=blue"> <img src="https://img.shields.io/static/v1?logo=duckdb&label=duckdb&message=1.0.0&color=blue">
 
 # NBA stats
 
@@ -33,10 +33,10 @@ The project is developed and tested under Python 3.11. No specific environment v
 To setup and use the project locally, execute the following steps:
 
 1. `python -m venv venv` (Create virtual environment - Using python 3.11 is recommended)
-2. `source venv/bin/activate` (Activate virtual environment)
-3. `pip install -r requirements.txt` (Install main requirements)
-4. `pip install -r requirements-dev.txt` (Install dev related requirements)
-5. `pre-commit install -t commit-msg -t pre-commit` (Setup pre-commit)
+1. `source venv/bin/activate` (Activate virtual environment)
+2. `pip install -r requirements.txt` (Install main requirements)
+3. `pip install -r requirements-dev.txt` (Install dev related requirements)
+4. `pre-commit install -t commit-msg -t pre-commit` (Setup pre-commit)
 
 
 # 4. 🚀 Run
@@ -68,8 +68,17 @@ The following section describe the steps to create the local duckdb database, le
 
 Once the database is created:
 - Open the local db: `duckcli ./nba_dwh.duckdb`
-- Request data: `select * from team_season order by nb_game_win`
+- Request data:
 
+```sql
+-- Career statistics of Rajon Rondo
+select p.player_name, s.years, ps.nb_games, ps.avg_points, ps.avg_assists
+from player_season ps
+inner join player p on p.id = ps.player_id
+inner join season s on s.id = ps.season_id
+where p.player_name like 'Rajon Rondo'
+order by s.years
+```
 
 # 5. 🔗 Internal Architecture
 

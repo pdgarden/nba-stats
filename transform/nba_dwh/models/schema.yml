@@ -10,12 +10,6 @@ models:
         tests:
           - unique
           - not_null
-      - name: game_id
-        tests:
-          - not_null
-          - relationships:
-              to: ref('game')
-              field: id
       - name: team_id
         tests:
           - not_null

@@ -1,8 +1,4 @@
-{{
-    config(
-        tags=["gold"],
-    )
-}}
+{{ config(tags=["gold"], docs={"node_color": "gold"}) }}
 
 
 with

@@ -12,6 +12,7 @@ with
 
         select
             sha256(gs.game_id) id,
+            sha256(gs.season_year::varchar) season_id,
             gs.game_id game_name,
             gs.date date,
             sha256(gs.home_team) home_team_id,
@@ -25,7 +26,7 @@ with
         inner join game_boxscore gb on gb.game_id = sha256(gs.game_id)
         inner join season_calendar sc on sha256(sc.year::varchar) = sha256(gs.season_year::varchar)
 
-        group by 1, 2, 3, 4, 5, 6
+        group by 1, 2, 3, 4, 5, 6, 7
 
     ),
 
@@ -34,6 +35,7 @@ with
         select
             s.id id,
             s.game_name game_name,
+            s.season_id season_id,
             s.date date,
             s.home_team_id home_team_id,
             s.away_team_id away_team_id,

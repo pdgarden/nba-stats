@@ -71,17 +71,23 @@ models:
           - not_null
           - unique
       - name: home_team_id
-        description: "ID (name) of the team playing at home"
+        description: "ID of the team playing at home"
         tests:
           - relationships:
-              to: ref('team_season')
-              field: team_id
+              to: ref('team')
+              field: id
       - name: away_team_id
-        description: "ID (name) of the team playing away"
+        description: "ID of the team playing away"
         tests:
           - relationships:
-              to: ref('team_season')
-              field: team_id
+              to: ref('team')
+              field: id
+      - name: season_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('season')
+              field: id
 
   - name: team_season
     description: "Summary of every season per NBA team"

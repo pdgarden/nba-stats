@@ -28,21 +28,21 @@ jobs:
         run: uv sync --all-extras --dev
 
       - name: Verify dbt
-        run: dbt --version
+        run: uv run dbt --version
 
       - name: Install dbt deps
         working-directory: ./transform/nba_dwh
-        run: dbt deps
+        run: uv run dbt deps
 
       - name: Run dbt
         working-directory: ./transform/nba_dwh
         run: |
-          dbt run
+          uv run dbt run
 
       - name: Generate dbt docs
         working-directory: ./transform/nba_dwh
         run: |
-          dbt docs generate
+          uv run dbt docs generate
           cd target
           mkdir ${{ github.workspace }}/docs
           cp *.json *.html graph.gpickle ${{ github.workspace }}/docs

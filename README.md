@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/static/v1?logo=python&label=python&message=3.12&logoColor=yellow&color=blue"> <img src="https://img.shields.io/static/v1?logo=dbt&label=dbt&message=1.9&color=blue"> <img src="https://img.shields.io/static/v1?logo=duckdb&label=duckdb&message=1.1&color=blue">
+<img src="https://img.shields.io/static/v1?logo=python&label=python&message=3.12&logoColor=yellow&color=blue"> <img src="https://img.shields.io/static/v1?logo=dbt&label=dbt&message=1.9&color=blue"> <img src="https://img.shields.io/static/v1?logo=duckdb&label=duckdb&message=1.1&color=blue"> <img src="https://img.shields.io/static/v1?logo=uv&label=uv&message=0.5.10&color=blue">
 
 
 
@@ -27,18 +27,16 @@ Datawarehouse documentation: [link](https://pdgarden.github.io/nba-stats/)
 
 # 2. 📟 Prerequisites
 
-The project is developed and tested under Python 3.11. No specific environment variable is necessary.
+The project uses uv (`v0.5.10`) to handle python version and dependencies.
 
 
 # 3. 🔌 Quickstart
 
 To setup and use the project locally, execute the following steps:
 
-1. `python -m venv venv` (Create virtual environment - Using python 3.11 is recommended)
-1. `source venv/bin/activate` (Activate virtual environment)
-2. `pip install -r requirements.txt` (Install main requirements)
-3. `pip install -r requirements-dev.txt` (Install dev related requirements)
-4. `pre-commit install -t commit-msg -t pre-commit` (Setup pre-commit)
+1. `curl -LsSf https://astral.sh/uv/0.5.10/install.sh | sh` (Install uv `v0.5.10`. See [doc](https://docs.astral.sh/uv/getting-started/installation/).)
+2. `uv sync` (Install virtual environment)
+3. `uv run pre-commit install -t commit-msg -t pre-commit` (Setup pre-commit)
 
 
 # 4. 🚀 Run
@@ -48,8 +46,8 @@ To setup and use the project locally, execute the following steps:
   <summary>This is not necessary to execute it again as the data is already extracted</summary>
 
 - `cd ./scraping`
-- Generate `game_schedule.csv` : `python get_games_schedule.py`
-- Generate `game_boxscore.csv` : `python get_games_boxscore.py`
+- Generate `game_schedule.csv` : `uv run python get_games_schedule.py`
+- Generate `game_boxscore.csv` : `uv run python get_games_boxscore.py`
 
 > The generated data is then transferred to the sources of the dbt project: `cp ./scraping/data/*.parquet ./transform/nba_dwh/local_source/`
 
@@ -60,17 +58,17 @@ To setup and use the project locally, execute the following steps:
 The following section describe the steps to create the local duckdb database, leveraging dbt:
 
 1. `cd ./transform/nba_dwh`
-2. `dbt deps` (Install dbt dependencies)
-3. `dbt run` (Run transformations)
-4. `dbt test` (Test pipeline)
-5. `dbt docs generate` (Generate doc)
-6. `dbt docs serve` (Launch doc)
+2. `uv run dbt deps` (Install dbt dependencies)
+3. `uv run dbt run` (Run transformations)
+4. `uv run dbt test` (Test pipeline)
+5. `uv run dbt docs generate` (Generate doc)
+6. `uv run dbt docs serve` (Launch doc)
 
 
 ## 4.3. ⚙️ Interact with database
 
 Once the database is created:
-- Open the local db: `duckcli ./nba_dwh.duckdb`
+- Open the local db: `uv run duckcli ./nba_dwh.duckdb`
 - Request data:
 
 ```sql

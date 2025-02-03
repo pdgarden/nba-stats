@@ -12,7 +12,7 @@ from loguru import logger
 from pydantic import BaseModel
 from tqdm import tqdm
 
-from get_games_schedule import DATA_FOLDER, SECONDS_BETWEEN_REQUESTS, YEAR, Game
+from scraping.get_games_schedule import DATA_FOLDER, SECONDS_BETWEEN_REQUESTS, YEAR, Game
 
 # ------------------------------------------------------------------------------------------------ #
 # Models

@@ -26,7 +26,8 @@ SECONDS_BETWEEN_REQUESTS = 60 / (MAX_NB_REQUESTS_PER_MINUTE - 1)
 MONTHS = ["october", "november", "december", "january", "february", "march", "april", "may", "june"]
 YEAR = 2023
 
-DATA_FOLDER = Path("data")
+DATA_FOLDER = Path(__file__).resolve().parent / "data"
+
 
 # ------------------------------------------------------------------------------------------------ #
 # Models

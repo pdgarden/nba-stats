@@ -45,9 +45,8 @@ To setup and use the project locally, execute the following steps:
 <details>
   <summary>This is not necessary to execute it again as the data is already extracted</summary>
 
-- `cd ./scraping`
-- Generate `game_schedule.csv` : `uv run python get_games_schedule.py`
-- Generate `game_boxscore.csv` : `uv run python get_games_boxscore.py`
+- Generate `game_schedule.csv` : `uv run python -m scraping.get_games_schedule`
+- Generate `game_boxscore.csv` : `uv run python -m scraping.get_games_boxscore`
 
 > The generated data is then transferred to the sources of the dbt project: `cp ./scraping/data/*.parquet ./transform/nba_dwh/local_source/`
 

@@ -1,17 +1,9 @@
-name: Linter - Ruff
+name: Lint & Test
 on: [ push, pull_request ]
 
 jobs:
 
-  ruff:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: chartboost/ruff-action@v1
-        with:
-          version: 0.9.2
-
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current branch
@@ -30,5 +22,17 @@ jobs:
       - name: Install the project
         run: uv sync --all-extras --dev
 
+  ruff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: chartboost/ruff-action@v1
+        with:
+          version: 0.9.2
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Run pytest
         run: uv run python -m pytest . --ignore=transform/nba_dwh/dbt_packages

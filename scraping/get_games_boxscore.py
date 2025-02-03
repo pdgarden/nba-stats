@@ -9,7 +9,7 @@ import time
 
 import pandas as pd
 from loguru import logger
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from tqdm import tqdm
 
 from scraping.get_games_schedule import DATA_FOLDER, SECONDS_BETWEEN_REQUESTS, YEAR, Game
@@ -20,15 +20,13 @@ from scraping.get_games_schedule import DATA_FOLDER, SECONDS_BETWEEN_REQUESTS, Y
 
 class GameBoxscores(BaseModel):
     """Games boxscore from away and home team."""
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
     game_id: str
     home_team: str
     away_team: str
     home_team_boxscore: pd.DataFrame
     away_team_boxscore: pd.DataFrame
-
-    class Config:
-        arbitrary_types_allowed = True
 
 
 # ------------------------------------------------------------------------------------------------ #

@@ -36,7 +36,9 @@ To setup and use the project locally, execute the following steps:
 
 1. `curl -LsSf https://astral.sh/uv/0.5.10/install.sh | sh` (Install uv `v0.5.10`. See [doc](https://docs.astral.sh/uv/getting-started/installation/).)
 2. `uv sync` (Install virtual environment)
-3. `uv run pre-commit install -t commit-msg -t pre-commit` (Setup pre-commit)
+3. To develop (Optional):
+   1. `uv run pre-commit install -t commit-msg -t pre-commit` (Setup pre-commit)
+   2. `uv run python -m pytest . --ignore=transform/nba_dwh/dbt_packages` (Run unit tests)
 
 
 # 4. 🚀 Run
@@ -89,6 +91,7 @@ order by s.years
 # 6. 🏆 Code Quality and Formatting
 
 - The python files are linted and formatted using ruff, see configuration in `pyproject.toml`
+- The python code is (lightly) tested using pytest
 - The dbt sql models files are formatted using sqlfmt
 - Pre-commit configuration is available to ensure trigger quality checks (e.g. linter)
 - Commit messages follow the conventional commit convention

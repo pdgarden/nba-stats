@@ -32,4 +32,4 @@ jobs:
         run: uv sync --all-extras --dev
 
       - name: Run pytest
-        run: uv run python -m pytest . --ignore=transform/nba_dwh/dbt_packages
+        run: uv run python -m pytest -v . --ignore=transform/nba_dwh/dbt_packages
